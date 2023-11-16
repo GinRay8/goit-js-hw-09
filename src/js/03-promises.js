@@ -1,4 +1,5 @@
 import Notiflix from 'notiflix';
+
 function createPromise(position, delay) {
   return new Promise((resolve, reject) => {
     const shouldResolve = Math.random() > 0.3;
@@ -20,6 +21,8 @@ form.addEventListener('submit', function (event) {
   const step = +this.elements.step.value;
   const amount = +this.elements.amount.value;
 
+  form.reset();
+
   for (let i = 1; i <= amount; i++) {
     const promiseDelay = delay + (i - 1) * step;
 
@@ -36,3 +39,5 @@ form.addEventListener('submit', function (event) {
       });
   }
 });
+
+
