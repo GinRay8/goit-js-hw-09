@@ -11,10 +11,12 @@ let initTime;
 let intervalId;
 let isActive = false;
 
+elements.btnStop.disabled = true;
 elements.btnStart.addEventListener('click', () => {
     if (isActive) return;
     isActive = true;
     elements.btnStart.disabled = true;
+     elements.btnStop.disabled = false;
     initTime = Date.now();
     intervalId = setInterval(() => {
         const currenTime = Date.now();
@@ -29,5 +31,6 @@ elements.btnStop.addEventListener('click', () => {
     if (!isActive) return;
     isActive = false;
     elements.btnStart.disabled = false;
+     elements.btnStop.disabled = true;
     clearInterval(intervalId);
 });
